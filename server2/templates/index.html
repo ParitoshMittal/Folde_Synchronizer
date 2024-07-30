@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder Sync</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="/static/logo.png" alt="Folder Sync Logo" class="logo"/>
+    <h1>Folder Sync</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="source_path">Source Folder:</label>
+            <input type="text" name="source_path" id="source_path" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="target_path">Target Folder:</label>
+            <input type="text" name="target_path" id="target_path" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Sync</button>
+    </form>
+</div>
+</body>
+</html>

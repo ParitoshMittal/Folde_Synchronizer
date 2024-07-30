@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Files in Folder</title>
+  </head>
+  <body>
+    <h1>Files in Folder</h1>
+    <ul id="fileList"></ul>
+    <script>
+      const folderPath = "C:\Users\Lenovo\Desktop\Os\server_folder"; // Replace with the path to your folder
+      
+      // Use the FileReader API to read the contents of the folder
+      const reader = new FileReader();
+      reader.onload = function() {
+        const fileList = document.getElementById("fileList");
+        
+        // Parse the folder contents as a list of file names
+        const fileNames = this.result.split("\n").filter(name => name);
+        
+        // Generate HTML links for each file in the folder
+        fileNames.forEach(name => {
+          const link = document.createElement("a");
+          link.href = `${folderPath}/${name}`;
+          link.textContent = name;
+          
+          const listItem = document.createElement("li");
+          listItem.appendChild(link);
+          fileList.appendChild(listItem);
+        });
+      };
+      reader.readAsText(new Blob([`${folderPath}\n`]));
+    </script>
+  </body>
+</html>
